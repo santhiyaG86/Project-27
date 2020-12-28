@@ -17,18 +17,22 @@ function setup() {
 
 	//Create the Bodies Here.
 	Ground = new ground(350,300,250,20);
+	bobDiameter=40;
 
-	bob1 = new bob(300,500,40);
-	bob2 = new bob(300,500,40);
-	bob3 = new bob(300,500,40);
-	bob4 = new bob(300,500,40);
-	bob5 = new bob(300,500,40);
+	startBobPositionX=width/2;
+	startBobPositionY=height/4+500;
+	bob1 = new bob(startBobPositionX-bobDiameter*2,startBobPositionY,bobDiameter);
+	bob2 = new bob(startBobPositionX-bobDiameter,startBobPositionY,bobDiameter);
+	bob3 = new bob(startBobPositionX,startBobPositionY,bobDiameter);
+	bob4 = new bob(startBobPositionX+bobDiameter,startBobPositionY,bobDiameter);
+	bob5 = new bob(startBobPositionX+bobDiameter*2,startBobPositionY,bobDiameter);
 
-	Chain1 = new Rope(bob1.body, Ground.body, -20*2, 0);
-	Chain2 = new Rope(bob2.body, Ground.body, -20*2, 0);
-	Chain3 = new Rope(bob3.body, Ground.body, -20*2, 0);
-	Chain4 = new Rope(bob4.body, Ground.body, -20*2, 0);
-	Chain5 = new Rope(bob5.body, Ground.body, -20*2, 0);
+	Chain1 = new Rope(bob1.body, Ground.body, -bobDiameter*2, 0);
+	Chain2 = new Rope(bob2.body, Ground.body, -bobDiameter*1, 0);
+	Chain3 = new Rope(bob3.body, Ground.body, 0, 0);
+	Chain4 = new Rope(bob4.body, Ground.body, bobDiameter*1, 0);
+	Chain5 = new Rope(bob5.body, Ground.body, bobDiameter*2, 0);
+
 
 	Engine.run(engine);
   
